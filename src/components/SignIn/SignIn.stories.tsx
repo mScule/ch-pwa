@@ -4,6 +4,7 @@ import SignIn from ".";
 
 const meta: Meta<typeof SignIn> = {
   title: "Components/SignIn",
+  tags: ["autodocs"],
   component: SignIn,
 };
 

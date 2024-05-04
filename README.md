@@ -2,18 +2,15 @@
 
 ## Commands
 
-| Command          | Description                                |
-| ---------------- | ------------------------------------------ |
-| `pnpm dev`       | Start [dev server](http://localhost:5173/) |
-| `pnpm test`      | Start testing session                      |
-| `pnpm storybook` | Open [storybook](http://localhost:6006/)   |
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Command                | Description                                      |
+| ---------------------- | ------------------------------------------------ |
+| `pnpm dev`             | Start [dev server](http://localhost:5173/)       |
+| `pnpm storybook`       | Start [storybook server](http://localhost:6006/) |
+| `pnpm test`            | Start testing session                            |
+| `pnpm lint`            | Run linter                                       |
+| `pnpm preview`         | Run the built project in preview mode            |
+| `pnpm build`           | Build the project                                |
+| `pnpm build-storybook` | Build storybook                                  |
 
 ## Expanding the ESLint configuration
 
@@ -37,8 +34,6 @@ export default {
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
-
-
 **Core library**: [React](https://react.dev/)
 
 **Component library**: [Material UI](https://mui.com/)
@@ -48,4 +43,3 @@ export default {
 **Component testing library**: [Testing Library](https://testing-library.com/)
 
 **Authentication**: [Firebase](https://firebase.google.com/)
-
