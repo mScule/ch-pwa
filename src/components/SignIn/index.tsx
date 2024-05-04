@@ -3,7 +3,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 import FormattedMessage from "../FormattedMessage";
 
 type Props = {
-  onClick?: () => void | Promise<void>;
+  onClick?: () => void;
 };
 
 export default function SignIn({ onClick }: Props) {

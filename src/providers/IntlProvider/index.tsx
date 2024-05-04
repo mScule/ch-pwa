@@ -27,10 +27,14 @@ export default function IntlProvider({ children }: Props) {
   const { locale, messages } = useAppSelector((state) => state.intl);
 
   useEffect(() => {
-    loadMessages(locale).then((messages: Messages) => {
-      dispatch(changeMessages(messages));
-    });
-  }, [locale]);
+    loadMessages(locale)
+      .then((messages: Messages) => {
+        dispatch(changeMessages(messages));
+      })
+      .catch((error: unknown) => {
+        throw error;
+      });
+  }, [dispatch, locale]);
 
   return (
     <Provider locale={locale} messages={messages}>

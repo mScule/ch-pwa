@@ -14,6 +14,8 @@ type Story = StoryObj<typeof SignIn>;
 
 export const Basic: Story = {
   args: {
-    onClick: () => alert("Signing in ...")
-  }
+    onClick: () => {
+      alert("Signing in ...");
+    },
+  },
 };
