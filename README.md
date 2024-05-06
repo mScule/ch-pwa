@@ -12,6 +12,8 @@
 | `npm run build`           | Build the project                                |
 | `npm run build-storybook` | Build storybook                                  |
 
+## Technologies used
+
 **Core library**: [React](https://react.dev/)
 
 **Component library**: [Material UI](https://mui.com/)
