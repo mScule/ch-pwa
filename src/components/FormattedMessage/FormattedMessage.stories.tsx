@@ -3,30 +3,26 @@ import { Meta, StoryObj } from "@storybook/react";
 import FormattedMessage from ".";
 import { Typography } from "@mui/material";
 
-const meta: Meta<typeof FormattedMessage> = {
+export default {
   title: "Components/FormattedMessage",
   tags: ["autodocs"],
   component: FormattedMessage,
   decorators: [(Story) => <Typography>{Story()}</Typography>],
-};
+} as Meta<typeof FormattedMessage>;
 
-export default meta;
-
-type Story = StoryObj<typeof FormattedMessage>;
-
-export const SignInTitleMessage: Story = {
+export const SignInTitleMessage: StoryObj<typeof FormattedMessage> = {
   args: {
     id: "SignIn.Title",
   },
 };
 
-export const SignInGuideMessage: Story = {
+export const SignInGuideMessage: StoryObj<typeof FormattedMessage> = {
   args: {
     id: "SignIn.Guide",
   },
 };
 
-export const SignInGoogleMethodMessage: Story = {
+export const SignInGoogleMethodMessage: StoryObj<typeof FormattedMessage> = {
   args: {
     id: "SignIn.Method.Google",
   },

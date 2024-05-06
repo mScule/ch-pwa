@@ -10,7 +10,7 @@ type Props = TestEnvironmentVariables & {
 
 export default function TestEnvironmentSetup({
   children,
-  theme,
+  //theme,
   locale,
 }: Props) {
   const dispatch = useAppDispatch();

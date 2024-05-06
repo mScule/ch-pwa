@@ -2,17 +2,13 @@ import { Meta, StoryObj } from "@storybook/react";
 
 import SignIn from ".";
 
-const meta: Meta<typeof SignIn> = {
+export default {
   title: "Components/SignIn",
   tags: ["autodocs"],
   component: SignIn,
-};
+} as Meta<typeof SignIn>;
 
-export default meta;
-
-type Story = StoryObj<typeof SignIn>;
-
-export const Basic: Story = {
+export const Basic: StoryObj<typeof SignIn> = {
   parameters: {
     design: {
       type: "figma",
