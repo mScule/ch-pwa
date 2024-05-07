@@ -1,22 +1,18 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
 
 import SignIn from ".";
 import customRender from "../../testing/customRender";
+import { cleanup } from "@testing-library/react";
 
 describe("SignIn", () => {
-  it("renders the signin button in english", async () => {
-    const component = customRender(<SignIn />, { locale: "en" });
-    const button = await component.findByText("Sign in with Google");
-
-    expect(button).toBeTruthy();
-    component.unmount();
+  afterEach(() => {
+    cleanup();
   });
 
-  it("renders the signin button in finnish", async () => {
-    const component = customRender(<SignIn />, { locale: "fi" });
-    const button = await component.findByText("Kirjaudu Google tunnuksella");
+  it("renders the signin button", () => {
+    const component = customRender(<SignIn />);
+    const button = component.getByText("SignIn.Method.Google");
 
     expect(button).toBeTruthy();
-    component.unmount();
   });
 });

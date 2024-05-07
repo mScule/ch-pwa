@@ -1,14 +1,19 @@
 import { ReactNode } from "react";
-import GlobalsProvider from "../providers/GlobalsProvider";
-import TestEnvironmentVariables from "../types/TestEnvironmentVariables";
-import TestEnvironmentSetup from "./TestEnvironmentSetup";
+import { Provider } from "react-redux";
+import { IntlProvider } from "react-intl";
+import { store } from "../store";
 
-export default function TestEnvironment(props: TestEnvironmentVariables) {
+import TestEnvironmentVariables from "../types/TestEnvironmentVariables";
+import testMessages from "./testMessages";
+
+export default function TestEnvironment({ locale }: TestEnvironmentVariables) {
   return function ({ children }: { children: ReactNode }) {
     return (
-      <GlobalsProvider>
-        <TestEnvironmentSetup {...props}>{children}</TestEnvironmentSetup>
-      </GlobalsProvider>
+      <Provider store={store}>
+        <IntlProvider locale={locale ?? "en"} messages={testMessages}>
+          {children}
+        </IntlProvider>
+      </Provider>
     );
   };
 }

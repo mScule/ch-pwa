@@ -1,18 +1,21 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
 
 import LocaleSwitch from ".";
 import customRender from "../../testing/customRender";
+import { cleanup } from "@testing-library/react";
 
 describe("LocaleSwitch", () => {
-  it("renders the switch and includes correct text", async () => {
-    const component = customRender(<LocaleSwitch />, { locale: "en" });
+  afterEach(() => {
+    cleanup();
+  });
 
-    const en = await component.findByText("En");
-    const fi = await component.findByText("Fi");
+  it("renders the switch and includes correct text", () => {
+    const component = customRender(<LocaleSwitch />);
+
+    const en = component.getByText("En");
+    const fi = component.getByText("Fi");
 
     expect(en).toBeTruthy();
     expect(fi).toBeTruthy();
-
-    component.unmount();
   });
 });

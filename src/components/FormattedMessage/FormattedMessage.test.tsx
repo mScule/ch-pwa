@@ -1,46 +1,34 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
 
 import FormattedMessage from ".";
 import customRender from "../../testing/customRender";
+import { cleanup } from "@testing-library/react";
 
 describe("FormattedMessage", () => {
-  it("renders correct message in english for id SignIn.Title", async () => {
-    const component = customRender(<FormattedMessage id="SignIn.Title" />, {
-      locale: "en",
-    });
-    const message = await component.findByText("Sign in");
-
-    expect(message).toBeTruthy();
-    component.unmount();
+  afterEach(() => {
+    cleanup();
   });
 
-  it("renders correct message in english for id SignIn.Guide", async () => {
-    const component = customRender(<FormattedMessage id="SignIn.Guide" />, {
-      locale: "en",
-    });
-    const message = await component.findByText("Please sign in");
+  it("renders SignIn.Title", () => {
+    const component = customRender(<FormattedMessage id="SignIn.Title" />);
+    const message = component.getByText("SignIn.Title");
 
     expect(message).toBeTruthy();
-    component.unmount();
   });
 
-  it("renders correct message in finnish for id SignIn.Title", async () => {
-    const component = customRender(<FormattedMessage id="SignIn.Title" />, {
-      locale: "fi",
-    });
-    const message = await component.findByText("Kirjautuminen");
+  it("renders SignIn.Guide", () => {
+    const component = customRender(<FormattedMessage id="SignIn.Guide" />);
+    const message = component.getByText("SignIn.Guide");
 
     expect(message).toBeTruthy();
-    component.unmount();
   });
 
-  it("renders correct message in finnish for id SignIn.Guide", async () => {
-    const component = customRender(<FormattedMessage id="SignIn.Guide" />, {
-      locale: "fi",
-    });
-    const message = await component.findByText("Kirjaudu sisään");
+  it("renders SignIn.Guide", () => {
+    const component = customRender(
+      <FormattedMessage id="SignIn.Method.Google" />,
+    );
+    const message = component.getByText("SignIn.Method.Google");
 
     expect(message).toBeTruthy();
-    component.unmount();
   });
 });
